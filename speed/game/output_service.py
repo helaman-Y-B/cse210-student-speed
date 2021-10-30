@@ -43,19 +43,15 @@ class OutputService:
         self._screen.print_at(text2, x2, y2, 7)
 
     def draw_word(self):
-        count_down = 0
+        self.__list_words = []
         while len(self.__list_words) < 5:
-            if count_down == 0:
-                for j in self.word.get_words():
-                    word = j[0]
-                    x = j[1]
-                    y = j[2]
-                    self._screen.print_at(word, x, y, 7)
-                    self.__list_words.append(word)
-                count_down += 1
-                break
-            else:
-                break
+            for j in self.word.update_words():
+                word = j[0]
+                x = j[1]
+                y = j[2]
+                self._screen.print_at(word, x, y, 7)
+                self.__list_words.append(word)
+            break
 
     def get_words(self):
         return self.__list_words
