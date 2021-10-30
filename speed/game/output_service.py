@@ -1,4 +1,6 @@
-from speed.game.constants import MAX_X, MAX_Y
+from game.constants import MAX_X, MAX_Y
+from game.point import Point
+from game.word_provider import WordProvider
 
 
 class OutputService:
@@ -17,7 +19,10 @@ class OutputService:
             self (OutputService): An instance of OutputService.
             screen (Screen): An Asciimatics Screen.
         """
+        self.__list_words = []
         self._screen = screen
+        self.point = Point()
+        self.word = WordProvider()
 
     def clear_screen(self):
         """Clears the Asciimatics buffer in preparation for the next rendering.
@@ -29,28 +34,27 @@ class OutputService:
         self._screen.print_at("-" * MAX_X, 0, 0, 7)
         self._screen.print_at("-" * MAX_X, 0, MAX_Y, 7)
 
-    def draw_actor(self, actor):
-        """Renders the given actor's text on the screen.
+    def draw_interface(self, interface):
+        text1, x1, y1 = interface.get_score()
 
-        Args:
-            self (OutputService): An instance of OutputService.
-            actor (Actor): The actor to render.
-        """
-        text = actor.get_text()
-        position = actor.get_position()
-        x = position.get_x()
-        y = position.get_y()
-        self._screen.print_at(text, x, y, 7)  # WHITE
+        text2, x2, y2 = interface.get_buffer()
 
-    def draw_actors(self, actors):
-        """Renders the given list of actors on the screen.
+        self._screen.print_at(text1, x1, y1, 7)
+        self._screen.print_at(text2, x2, y2, 7)
 
-        Args:
-            self (OutputService): An instance of OutputService.
-            actors (list): The actors to render.
-        """
-        for actor in actors:
-            self.draw_actor(actor)
+    def draw_word(self):
+        self.__list_words = []
+        while len(self.__list_words) < 5:
+            for j in self.word.update_words():
+                word = j[0]
+                x = j[1]
+                y = j[2]
+                self._screen.print_at(word, x, y, 7)
+                self.__list_words.append(word)
+            break
+
+    def get_words(self):
+        return self.__list_words
 
     def flush_buffer(self):
         """Renders the screen.
