@@ -22,7 +22,6 @@ class OutputService:
         self._screen = screen
         self.point = Point()
         self.word = WordProvider()
-        
 
     def clear_screen(self):
         """Clears the Asciimatics buffer in preparation for the next rendering.
@@ -33,27 +32,22 @@ class OutputService:
         self._screen.clear_buffer(7, 0, 0)
         self._screen.print_at("-" * MAX_X, 0, 0, 7)
         self._screen.print_at("-" * MAX_X, 0, MAX_Y, 7)
-        
+
     def draw_interface(self, interface):
         text1, x1, y1 = interface.get_score()
 
-        text2, x2, y2= interface.get_buffer()
+        text2, x2, y2 = interface.get_buffer()
 
-        
         self._screen.print_at(text1, x1, y1, 7)
         self._screen.print_at(text2, x2, y2, 7)
-        
+
     def draw_word(self):
-         for i in self.word.update_words():
-            word, x, y = i 
-            self._screen.print_at(word, x, y, 7)
-            
+
+        word, x, y = self.word.update_words()
+        self._screen.print_at(word, x, y, 7)
+
     def get_words(self):
         return self.word.get_words()
-        
-
-
-
 
     def flush_buffer(self):
         """Renders the screen.

@@ -14,38 +14,31 @@ class WordProvider:
         _word (Word): An Random word from a list."""
 
     def __init__(self) -> None:
-        
+
         self.point = Point()
-        self._word1 = "nicolas", self.point.get_new_x(), self.point.get_new_y()
-        self._word2 = "james", self.point.get_new_x(), self.point.get_new_y()
-        self._word3 = "helama", self.point.get_new_x(), self.point.get_new_y()
-        self._word4 = "jhon", self.point.get_new_x(), self.point.get_new_y()
-        self._word5 = "joseph", self.point.get_new_x(), self.point.get_new_y()
-        
-        
+        #self._word1 = "nicolas", self.point.get_new_x(), self.point.get_new_y()
+        self._word = "", self.point.get_new_x(), self.point.get_new_y()
+        #self._word2 = "james", self.point.get_new_x(), self.point.get_new_y()
+        #self._word3 = "helama", self.point.get_new_x(), self.point.get_new_y()
+        #self._word4 = "jhon", self.point.get_new_x(), self.point.get_new_y()
+        #self._word5 = "joseph", self.point.get_new_x(), self.point.get_new_y()
 
     def word_picker(self):
         self._word = random.choice(LIBRARY)
         return self._word
-        
+
     def update_words(self):
-        
-        self._word1 = "nicolas", self.point.get_new_x(), self.point.get_new_y()
-        self._word2 = "james", self.point.get_new_x(), self.point.get_new_y()
-        self._word3 = "helama", self.point.get_new_x(), self.point.get_new_y()
-        self._word4 = "jhon", self.point.get_new_x(), self.point.get_new_y()
-        self._word5 = "joseph", self.point.get_new_x(), self.point.get_new_y()
+        for _ in range(5):
+            self._word = f"{self.get_words()}", self.point.get_new_x(
+            ), self.point.get_new_y()
+            return self._word
+        #self._word2 = "james", self.point.get_new_x(), self.point.get_new_y()
+        #self._word3 = "helama", self.point.get_new_x(), self.point.get_new_y()
+        #self._word4 = "jhon", self.point.get_new_x(), self.point.get_new_y()
+        #self._word5 = "joseph", self.point.get_new_x(), self.point.get_new_y()
 
-
-        
-        
-        words =  self._word1, self._word2, self._word3, self._word4, self._word5
-        
         # ~ new = self.point.move(words)
-        
-        return words
-        
+
     def get_words(self):
-        words = self._word1[0], self._word2[0], self._word3[0], self._word4[0], self._word5[0]
-        return words
-        
+        self.__random_word = random.choice(LIBRARY)
+        return self.__random_word

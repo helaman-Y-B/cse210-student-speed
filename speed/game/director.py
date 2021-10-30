@@ -34,7 +34,7 @@ class Director:
     def _get_input(self):
         letter = self._input_service.get_letter()
         self._interface.set_buffer(letter, self._output_service.get_words())
-        
+        self._interface.get_buffer()
 
     def _do_updates(self):
         self._score.increase_score("hola", "hola")
