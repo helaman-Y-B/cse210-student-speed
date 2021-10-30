@@ -51,6 +51,9 @@ class OutputService:
     def get_words(self):
         return self.word.get_words()
         
+    def clean(self, word):
+        self.word.clean_word(word)
+        
 
 
 

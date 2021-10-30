@@ -43,8 +43,11 @@ class Interface:
         if self._buffer in words:
             self._score +=1
             self._buffer = ""
+            
         if len(letter) > 0:
             self._buffer = self._buffer + letter
         if "*" in letter:
             self._buffer = ""
+    def get_word(self):
+        return self._buffer
 

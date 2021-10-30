@@ -17,7 +17,7 @@ class Director:
         _word: The word that the user needs to type."""
 
     def __init__(self, input_service, output_service):
-        self._word = WordProvider()
+        # ~ self._word = WordProvider()
         self._score = Score()
         self._keep_playing = True
         self._output_service = output_service
@@ -29,15 +29,20 @@ class Director:
             self._get_input()
             self._do_updates()
             self._get_outputs()
-            sleep(0.4)
+            sleep(0.5)
 
     def _get_input(self):
-        letter = self._input_service.get_letter()
-        self._interface.set_buffer(letter, self._output_service.get_words())
+        pass
+        # ~ letter = self._input_service.get_letter()
+        # ~ self._interface.set_buffer(letter, self._output_service.get_words())
+        
+        # ~ self._word.clean_word(self._interface.get_word())
         
 
     def _do_updates(self):
-        self._score.increase_score("hola", "hola")
+        pass
+        # ~ self._output_service.clean(self._interface.get_word())
+        # ~ self._score.increase_score("hola", "hola")
 
     def _get_outputs(self):
         self._output_service.clear_screen()
@@ -45,3 +50,6 @@ class Director:
         self._output_service.draw_word()
         # ~ self._output_service.draw_actors()
         self._output_service.flush_buffer()
+        letter = self._input_service.get_letter()
+        self._interface.set_buffer(letter, self._output_service.get_words())
+        self._output_service.clean(self._interface.get_word())

@@ -16,11 +16,11 @@ class WordProvider:
     def __init__(self) -> None:
         
         self.point = Point()
-        self._word1 = "nicolas", self.point.get_new_x(), self.point.get_new_y()
-        self._word2 = "james", self.point.get_new_x(), self.point.get_new_y()
-        self._word3 = "helama", self.point.get_new_x(), self.point.get_new_y()
-        self._word4 = "jhon", self.point.get_new_x(), self.point.get_new_y()
-        self._word5 = "joseph", self.point.get_new_x(), self.point.get_new_y()
+        self._word1 = ""
+        self._word2 = ""
+        self._word3 = ""
+        self._word4 = ""
+        self._word5 = ""
         
         
 
@@ -49,3 +49,15 @@ class WordProvider:
         words = self._word1[0], self._word2[0], self._word3[0], self._word4[0], self._word5[0]
         return words
         
+    def clean_word(self, word):
+        
+        if word in self._word1:
+            self._word1 = "",0,0
+        if word in self._word2:
+            self._word2 = "",0,0
+        if word in self._word3:
+            self._word3 = "",0,0
+        if word in self._word4:
+            self._word4 = "",0,0
+        if word in self._word1:
+            self._word5 = "",0,0
