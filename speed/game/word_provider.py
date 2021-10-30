@@ -16,26 +16,16 @@ class WordProvider:
     def __init__(self) -> None:
 
         self.point = Point()
-        #self._word1 = "nicolas", self.point.get_new_x(), self.point.get_new_y()
-        self._word = "", self.point.get_new_x(), self.point.get_new_y()
-        #self._word2 = "james", self.point.get_new_x(), self.point.get_new_y()
-        #self._word3 = "helama", self.point.get_new_x(), self.point.get_new_y()
-        #self._word4 = "jhon", self.point.get_new_x(), self.point.get_new_y()
-        #self._word5 = "joseph", self.point.get_new_x(), self.point.get_new_y()
 
-    def word_picker(self):
-        self._word = random.choice(LIBRARY)
-        return self._word
+        self._word = ""
+        self._list_of_words = []
 
     def update_words(self):
         for _ in range(5):
             self._word = f"{self.get_words()}", self.point.get_new_x(
             ), self.point.get_new_y()
-            return self._word
-        #self._word2 = "james", self.point.get_new_x(), self.point.get_new_y()
-        #self._word3 = "helama", self.point.get_new_x(), self.point.get_new_y()
-        #self._word4 = "jhon", self.point.get_new_x(), self.point.get_new_y()
-        #self._word5 = "joseph", self.point.get_new_x(), self.point.get_new_y()
+            self._list_of_words.append(self._word)
+        return self._list_of_words
 
         # ~ new = self.point.move(words)
 

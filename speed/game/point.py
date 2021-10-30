@@ -1,6 +1,7 @@
 import random
 from game.constants import MAX_X, MAX_Y
 
+
 class Point:
     """Represents distance from an origin (0, 0).
 
@@ -11,10 +12,10 @@ class Point:
         _x (integer): The horizontal distance.
         _y (Point): The vertical distance.
     """
-    
+
     def __init__(self):
         """The class constructor.
-        
+
         Args:
             self (Point): An instance of Point.
             x (integer): A horizontal distance.
@@ -22,7 +23,7 @@ class Point:
         """
         self._x = random.randrange(MAX_X+1)
         self._y = random.randrange(MAX_Y+1)
-        
+
     def new_coordinates(self):
         points = self._x, self._y
         return points
@@ -55,10 +56,10 @@ class Point:
 
     def get_x(self):
         """Gets the horizontal distance.
-        
+
         Args:
             self (Point): An instance of Point.
-            
+
         Returns:
             integer: The horizontal distance.
         """
@@ -66,37 +67,35 @@ class Point:
 
     def get_new_x(self):
         """Gets the horizontal distance.
-        
+
         Args:
             self (Point): An instance of Point.
-            
+
         Returns:
             integer: The horizontal distance.
         """
         x = random.randrange(1, MAX_X)
-        
+
         return x
-        
+
     def get_new_y(self):
         """Gets the horizontal distance.
-        
+
         Args:
             self (Point): An instance of Point.
-            
+
         Returns:
             integer: The horizontal distance.
         """
         y = random.randrange(1, MAX_Y)
-        
-        return y 
-        
-        
+
+        return y
+
     def move(self, words):
-        
+
         direction = "n", "s", "e", "w", "ne", "se", "sw", "nw"
         new_position = []
-        
-        
+
         for i in words:
             word, x, y = i
             var1 = direction[random.randrange(len(direction))]
@@ -124,17 +123,15 @@ class Point:
             elif "nw" == var1:
                 data = word, x-1, y+1
                 new_position.append(data)
-                
+
         return new_position
-        
-        
 
     def get_y(self):
         """Gets the vertical distance.
-        
+
         Args:
             self (Point): An instance of Point.
-            
+
         Returns:
             integer: The vertical distance.
         """
@@ -142,10 +139,10 @@ class Point:
 
     def reverse(self):
         """Gets a new Point that is the reverse of this one.
-        
+
         Args:
             self (Point): An instance of Point.
-            
+
         Returns:
             Point: A new Point that is reversed.
         """

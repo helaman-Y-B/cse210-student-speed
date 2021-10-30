@@ -42,9 +42,9 @@ class OutputService:
         self._screen.print_at(text2, x2, y2, 7)
 
     def draw_word(self):
-
-        word, x, y = self.word.update_words()
-        self._screen.print_at(word, x, y, 7)
+        for i in self.word.update_words():
+            word, x, y = i
+            self._screen.print_at(word, x, y, 7)
 
     def get_words(self):
         return self.word.get_words()
