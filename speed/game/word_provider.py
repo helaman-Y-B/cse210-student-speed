@@ -16,16 +16,18 @@ class WordProvider:
     def __init__(self) -> None:
 
         self.point = Point()
-        self._word1 = "", self.point.get_new_x(
+
+        self._word1 = f"{self.word_picker()}", self.point.get_new_x(
         ), self.point.get_new_y()
-        self._word2 = "", self.point.get_new_x(
+        self._word2 = f"{self.word_picker()}", self.point.get_new_x(
         ), self.point.get_new_y()
-        self._word3 = "", self.point.get_new_x(
+        self._word3 = f"{self.word_picker()}", self.point.get_new_x(
         ), self.point.get_new_y()
-        self._word4 = "", self.point.get_new_x(
+        self._word4 = f"{self.word_picker()}", self.point.get_new_x(
         ), self.point.get_new_y()
-        self._word5 = "", self.point.get_new_x(
+        self._word5 = f"{self.word_picker()}", self.point.get_new_x(
         ), self.point.get_new_y()
+
         self._word_state = True
         self._word = ""
         self._list_of_words = []
@@ -33,15 +35,15 @@ class WordProvider:
 
     def update_words(self):
         if self._word_state:
-            self._word1 = f"{self.word_picker()}", self.point.get_new_x(
+            self._word1 = f"{self.get_words()[0]}", self.point.get_new_x(
             ), self.point.get_new_y()
-            self._word2 = f"{self.word_picker()}", self.point.get_new_x(
+            self._word2 = f"{self.get_words()[1]}", self.point.get_new_x(
             ), self.point.get_new_y()
-            self._word3 = f"{self.word_picker()}", self.point.get_new_x(
+            self._word3 = f"{self.get_words()[2]}", self.point.get_new_x(
             ), self.point.get_new_y()
-            self._word4 = f"{self.word_picker()}", self.point.get_new_x(
+            self._word4 = f"{self.get_words()[3]}", self.point.get_new_x(
             ), self.point.get_new_y()
-            self._word5 = f"{self.word_picker()}", self.point.get_new_x(
+            self._word5 = f"{self.get_words()[4]}", self.point.get_new_x(
             ), self.point.get_new_y()
 
         words = self._word1, self._word2, self._word3, self._word4, self._word5

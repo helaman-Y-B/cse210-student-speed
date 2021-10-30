@@ -1,4 +1,5 @@
 from game.constants import MAX_X, MAX_Y
+from game.score import Score
 
 
 class Interface:
@@ -13,7 +14,7 @@ class Interface:
         """
         self._text1 = "Score: "
         self._text2 = "Buffer: "
-        self._score = 0
+        self._score = Score()
         self._buffer = ""
 
     def get_score(self):
@@ -25,7 +26,7 @@ class Interface:
         Returns:
             String: A string concatenated self._text1 + self._score
         """
-        text = f"{self._text1}{self._score}", 0, 0
+        text = f"{self._text1}{self._score._show_current_score()}", 0, 0
         return text
 
     def get_buffer(self):
@@ -42,7 +43,7 @@ class Interface:
 
     def set_buffer(self, letter, words):
         if self._buffer in words:
-            self._score += 1
+            self._score.increase_score()
             self._buffer = ""
         if len(letter) > 0:
             self._buffer = self._buffer + letter

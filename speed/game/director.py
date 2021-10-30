@@ -25,7 +25,7 @@ class Director:
         while self._keep_playing:
             self._get_input()
             self._get_outputs()
-            sleep(5.0)
+            sleep(1.0)
 
     def _get_input(self):
         letter = self._input_service.get_letter()
