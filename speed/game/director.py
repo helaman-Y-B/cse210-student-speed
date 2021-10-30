@@ -1,8 +1,6 @@
 # ~ from game.input_service import InputService
-from game.score import Score
 from game.word_provider import WordProvider
 from game.interface import Interface
-from game import constants
 from time import sleep
 
 
@@ -18,7 +16,6 @@ class Director:
 
     def __init__(self, input_service, output_service):
         self._word = WordProvider()
-        self._score = Score()
         self._keep_playing = True
         self._output_service = output_service
         self._input_service = input_service

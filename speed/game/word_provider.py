@@ -19,6 +19,7 @@ class WordProvider:
 
         self._word = ""
         self._list_of_words = []
+        self.__word = []
 
     def update_words(self):
         for _ in range(5):
@@ -30,5 +31,10 @@ class WordProvider:
         # ~ new = self.point.move(words)
 
     def get_words(self):
-        self.__random_word = random.choice(LIBRARY)
-        return self.__random_word
+        for _ in range(5):
+            self.__random_word = random.choice(LIBRARY)
+            self.__word.append(self.__random_word)
+            self._word = f"{self.__random_word}", self.point.get_new_x(
+            ), self.point.get_new_y()
+            self._list_of_words.append(self._word)
+        return self._list_of_words
