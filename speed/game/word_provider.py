@@ -13,7 +13,7 @@ class WordProvider:
     Attributes:
         _word (Word): An Random word from a list."""
 
-    def __init__(self) -> None:
+    def __init__(self):
 
         self.point = Point()
 
@@ -31,7 +31,6 @@ class WordProvider:
         self._word_state = True
         self._word = ""
         self._list_of_words = []
-        self.__word = []
 
     def update_words(self):
         if self._word_state:
@@ -50,8 +49,6 @@ class WordProvider:
 
         return words
 
-        # ~ new = self.point.move(words)
-
     def word_picker(self):
         self._word = random.choice(LIBRARY)
         return self._word
@@ -59,12 +56,3 @@ class WordProvider:
     def get_words(self):
         words = self._word1[0], self._word2[0], self._word3[0], self._word4[0], self._word5[0]
         return words
-
-    # def get_words(self):
-    #    for _ in range(5):
-    #        self.__random_word = random.choice(LIBRARY)
-    #        self.__word.append(self.__random_word)
-    #        self._word = f"{self.__random_word}", self.point.get_new_x(
-    #        ), self.point.get_new_y()
-    #        self._list_of_words.append(self._word)
-    #    return self._list_of_words

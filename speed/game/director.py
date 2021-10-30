@@ -1,6 +1,7 @@
 # ~ from game.input_service import InputService
 from game.word_provider import WordProvider
 from game.interface import Interface
+from game.user_validation import Validation
 from time import sleep
 
 
@@ -20,6 +21,7 @@ class Director:
         self._output_service = output_service
         self._input_service = input_service
         self._interface = Interface()
+        self.__validation = Validation()
 
     def start_game(self):
         while self._keep_playing:
@@ -29,6 +31,7 @@ class Director:
 
     def _get_input(self):
         letter = self._input_service.get_letter()
+        self.__validation._guessed_word(letter)
         self._interface.set_buffer(letter, self._output_service.get_words())
         self._interface.get_buffer()
 
