@@ -1,9 +1,5 @@
 
-
-from speed.game.input_service import InputService
-
-
-class Score:
+class Score():
     """Points earned. The responsibility of Score is to keep track of the player's points.
 
     Stereotype:
@@ -13,12 +9,11 @@ class Score:
         score: The user points.
     """
 
-    def __init__(self) -> None:
-        self.score = 0
-        self.input_service = InputService()
+    def __init__(self):
+        self._score = 0
 
-    def increase_score(self, user_word):
-        if user_word == self._word:
-            self.score + 1
-        else:
-            self.score = self.score
+        
+
+    def increase_score(self, user_word, preset_word):
+        if user_word == preset_word:
+            self._score += 1

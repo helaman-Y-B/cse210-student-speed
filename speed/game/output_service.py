@@ -1,4 +1,6 @@
-from speed.game.constants import MAX_X, MAX_Y
+from game.constants import MAX_X, MAX_Y
+from game.point import Point
+from game.word_provider import WordProvider
 
 
 class OutputService:
@@ -18,6 +20,9 @@ class OutputService:
             screen (Screen): An Asciimatics Screen.
         """
         self._screen = screen
+        self.point = Point()
+        self.word = WordProvider()
+        
 
     def clear_screen(self):
         """Clears the Asciimatics buffer in preparation for the next rendering.
@@ -28,29 +33,27 @@ class OutputService:
         self._screen.clear_buffer(7, 0, 0)
         self._screen.print_at("-" * MAX_X, 0, 0, 7)
         self._screen.print_at("-" * MAX_X, 0, MAX_Y, 7)
+        
+    def draw_interface(self, interface):
+        text1, x1, y1 = interface.get_score()
 
-    def draw_actor(self, actor):
-        """Renders the given actor's text on the screen.
+        text2, x2, y2= interface.get_buffer()
 
-        Args:
-            self (OutputService): An instance of OutputService.
-            actor (Actor): The actor to render.
-        """
-        text = actor.get_text()
-        position = actor.get_position()
-        x = position.get_x()
-        y = position.get_y()
-        self._screen.print_at(text, x, y, 7)  # WHITE
+        
+        self._screen.print_at(text1, x1, y1, 7)
+        self._screen.print_at(text2, x2, y2, 7)
+        
+    def draw_word(self):
+         for i in self.word.update_words():
+            word, x, y = i 
+            self._screen.print_at(word, x, y, 7)
+            
+    def get_words(self):
+        return self.word.get_words()
+        
 
-    def draw_actors(self, actors):
-        """Renders the given list of actors on the screen.
 
-        Args:
-            self (OutputService): An instance of OutputService.
-            actors (list): The actors to render.
-        """
-        for actor in actors:
-            self.draw_actor(actor)
+
 
     def flush_buffer(self):
         """Renders the screen.
