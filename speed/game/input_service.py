@@ -32,7 +32,7 @@ class InputService:
         result = ""
         event = self._screen.get_key()
         if not event is None:
-            if event == 27:
+            if event == -1:
                 sys.exit()
             elif event == 10:
                 result = "*"

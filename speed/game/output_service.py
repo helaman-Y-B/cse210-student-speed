@@ -22,6 +22,7 @@ class OutputService:
         self._screen = screen
         self.point = Point()
         self.word = WordProvider()
+        self.words_init = self.word.get_words()
         
 
     def clear_screen(self):
@@ -46,10 +47,22 @@ class OutputService:
     def draw_word(self):
          for i in self.word.update_words():
             word, x, y = i 
-            self._screen.print_at(word, x, y, 7)
+            if len(word) > 0:
+                self._screen.print_at(word, x, y, 7)
             
     def get_words(self):
-        return self.word.get_words()
+        
+        words = []
+        for i in self.word.get_words():
+            if len(i) > 0:
+                words.append(i)
+        return words
+    
+    def get_init_words(self):
+        
+        return self.words_init
+
+            
         
     def clean(self, word):
         self.word.clean_word(word)

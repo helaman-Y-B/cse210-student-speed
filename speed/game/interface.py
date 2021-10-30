@@ -40,6 +40,7 @@ class Interface:
         return text
         
     def set_buffer(self, letter, words):
+        
         if self._buffer in words:
             self._score +=1
             self._buffer = ""
