@@ -11,9 +11,21 @@ class WordProvider:
         Gameplay.
 
     Attributes:
-        _word (Word): An Random word from a list."""
+        point: the class Point.
+        _word: a string.
+        _word1: a word with coordinates.
+        _word2: a word with coordinates.
+        _word3: a word with coordinates.
+        _word4: a word with coordinates.
+        _word5: a word with coordinates.
+        _word_state: a boolean value.
+        """
 
     def __init__(self) -> None:
+        """The constructor for the WordProvider class.
+        
+        Args:
+            self (WordProvider): an instance of WorProvider."""
 
         self.point = Point()
 
@@ -30,10 +42,15 @@ class WordProvider:
 
         self._word_state = True
         self._word = ""
-        self._list_of_words = []
-        self.__word = []
 
     def update_words(self):
+        """Update the random generate words, so that it can appear in a different location.
+        
+        Args:
+            self (WordProvider): an instance of WorProvider.
+            
+        returns a list of words."""
+        
         if self._word_state:
             self._word1 = f"{self.get_words()[0]}", self.point.get_new_x(
             ), self.point.get_new_y()
@@ -50,21 +67,21 @@ class WordProvider:
 
         return words
 
-        # ~ new = self.point.move(words)
-
     def word_picker(self):
+        """Selects a random word from a list.
+        
+        Args:
+            self (WordProvider): an instance of WorProvider.
+            
+        Returns a random word."""
         self._word = random.choice(LIBRARY)
         return self._word
 
     def get_words(self):
+        """Makes a list of ONLY words.
+        
+        Args:
+            self (WordProvider): an instance of WorProvider."""
+        
         words = self._word1[0], self._word2[0], self._word3[0], self._word4[0], self._word5[0]
         return words
-
-    # def get_words(self):
-    #    for _ in range(5):
-    #        self.__random_word = random.choice(LIBRARY)
-    #        self.__word.append(self.__random_word)
-    #        self._word = f"{self.__random_word}", self.point.get_new_x(
-    #        ), self.point.get_new_y()
-    #        self._list_of_words.append(self._word)
-    #    return self._list_of_words
