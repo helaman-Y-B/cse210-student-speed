@@ -4,6 +4,15 @@ from game.score import Score
 
 class Interface:
     """A part of the interface, it prints current score and buffer words entered by the user
+    
+     Stereotype:
+        Draw interface.
+        
+     Attributes:
+        self._text1: Shows the word 'Score: ' in the interface.
+        self._text2: Shows the word 'Buffer: ' in the interface.
+        self._score: calls the class function.
+        self.buffer: The word or letter the user typed.
     """
 
     def __init__(self):
@@ -42,6 +51,10 @@ class Interface:
         return text
 
     def set_buffer(self, letter, words):
+        """This function decides if the user typed the word correctly or not.
+           It also sees if the user wants to remove the letter, because he/she migth have typed
+           the wrong letter."""
+        
         if self._buffer in words:
             self._score.increase_score()
             self._buffer = ""
