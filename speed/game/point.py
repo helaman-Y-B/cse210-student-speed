@@ -18,13 +18,15 @@ class Point:
 
         Args:
             self (Point): An instance of Point.
-            x (integer): A horizontal distance.
-            y (integer): A vertical distance.
         """
         self._x = random.randrange(MAX_X+1)
         self._y = random.randrange(MAX_Y+1)
 
     def new_coordinates(self):
+        """Creates new coordinates for the words in the board.
+        
+        Args:
+            self (Point): An instance of Point."""
         points = self._x, self._y
         return points
 
@@ -90,41 +92,6 @@ class Point:
         y = random.randrange(1, MAX_Y)
 
         return y
-
-    def move(self, words):
-
-        direction = "n", "s", "e", "w", "ne", "se", "sw", "nw"
-        new_position = []
-
-        for i in words:
-            word, x, y = i
-            var1 = direction[random.randrange(len(direction))]
-            if "n" == var1:
-                data = word, x, y+1
-                new_position.append(data)
-            elif "s" == var1:
-                data = word, x, y-1
-                new_position.append(data)
-            elif "e" == var1:
-                data = word, x-1, y
-                new_position.append(data)
-            elif "w" == var1:
-                data = word, x+1, y
-                new_position.append(data)
-            elif "ne" == var1:
-                data = word, x+1, y+1
-                new_position.append(data)
-            elif "se" == var1:
-                data = word, x+1, y-1
-                new_position.append(data)
-            elif "sw" == var1:
-                data = word, x-1, y-1
-                new_position.append(data)
-            elif "nw" == var1:
-                data = word, x-1, y+1
-                new_position.append(data)
-
-        return new_position
 
     def get_y(self):
         """Gets the vertical distance.
