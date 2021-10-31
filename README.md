@@ -40,4 +40,6 @@ root                    (project root folder)
 
 ## Authors
 ---
-* # TODO: Add names and emails here
+* Nicolas Paredes: par21035@byui.edu 
+* Helama Barbour: Helamashi@gmail.com 
+* James Charlie Salva: jamessalvajames@hotmail.com
